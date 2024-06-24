@@ -10,7 +10,7 @@ interface ShopProps {
 }
 
 const products: ProductType[] = [
-  { id: 1, title: 'Biryani', price: 300, imageUrl: '' },
+  { id: 1, title: 'Biryani', price: 300, imageUrl: 'https://example.com/images/nihari.jpg' },
   { id: 2, title: 'Nihari', price: 350, imageUrl: 'https://example.com/images/nihari.jpg' },
   { id: 3, title: 'Haleem', price: 250, imageUrl: 'https://img.freepik.com/premium-photo/chicken-haleem-halim-daleem-with-fried-onion-served-dish-isolated-wooden-table-top-view-indian-spices-food_689047-4633.jpg' },
   { id: 4, title: 'Karahi', price: 400, imageUrl: 'https://example.com/images/karahi.jpg' },
