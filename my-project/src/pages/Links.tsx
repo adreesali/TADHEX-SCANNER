@@ -8,7 +8,7 @@ const accounts = [
   { type: 'Instagram', url: 'https://instagram.com/yourprofile', icon: <FaInstagram className="text-pink-500 text-2xl" /> },
   { type: 'TikTok', url: 'https://tiktok.com/@yourprofile', icon: <FaTiktok className="text-red-500 text-2xl" /> },
 ];
-
+  
 const Links: React.FC = () => {
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
 
