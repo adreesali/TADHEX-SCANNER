@@ -1,5 +1,6 @@
 // import React, { useState } from 'react';
 // import { ProductType } from '../types';
+// import { FaTrash, FaMinus, FaPlus, FaUser, FaPhone, FaHome } from 'react-icons/fa';
 
 // interface CartProps {
 //   cart: ProductType[];
@@ -12,19 +13,22 @@
 //   const [name, setName] = useState('');
 //   const [phone, setPhone] = useState('');
 //   const [address, setAddress] = useState('');
+//   const [error, setError] = useState('');
 
 //   const totalPrice = cart.reduce((total, product) => total + product.price * product.quantity, 0);
 
 //   const handleWhatsAppOrder = () => {
 //     if (!name || !phone || !address) {
-//       alert("Please fill in all the fields");
+//       setError("Please fill in all the fields.");
 //       return;
 //     }
 
-//     const message = `Order Details:\n\n`;
-//     const orderItems = cart.map(item => `*${item.title}* - PKR ${item.price.toLocaleString()} x ${item.quantity}`).join('\n');
-//     const totalBill = `\n\nTotal Bill: *PKR ${totalPrice.toLocaleString()}*\n\n`;
-//     const customerDetails = `Customer Details:\nName: ${name}\nPhone: ${phone}\nAddress: ${address}`;
+//     setError("");
+
+//     const message = `*Order Details:*\n\n`;
+//     const orderItems = cart.map(item => `• **${item.title}** - PKR ${item.price.toLocaleString()} x ${item.quantity}`).join('\n');
+//     const totalBill = `\n\n*Total Bill:* PKR ${totalPrice.toLocaleString()}\n\n`;
+//     const customerDetails = `*Customer Details:*\n\n**Name:** ${name}\n**Phone:** ${phone}\n**Address:** ${address}`;
 //     const whatsappMessage = `${message}${orderItems}${totalBill}${customerDetails}`;
 //     const whatsappLink = `https://wa.me/923305687300?text=${encodeURIComponent(whatsappMessage)}`;
 //     window.open(whatsappLink, '_blank');
@@ -48,21 +52,21 @@
 //                 <div className="flex space-x-2">
 //                   <button
 //                     onClick={() => decreaseQuantity(product.id)}
-//                     className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-700"
+//                     className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-700 flex items-center"
 //                   >
-//                     -
+//                     <FaMinus />
 //                   </button>
 //                   <button
 //                     onClick={() => increaseQuantity(product.id)}
-//                     className="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-700"
+//                     className="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-700 flex items-center"
 //                   >
-//                     +
+//                     <FaPlus />
 //                   </button>
 //                   <button
 //                     onClick={() => removeFromCart(product.id)}
-//                     className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-700"
+//                     className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-700 flex items-center"
 //                   >
-//                     Delete
+//                     <FaTrash />
 //                   </button>
 //                 </div>
 //               </div>
@@ -71,28 +75,40 @@
 
 //             {/* User Details Input */}
 //             <div className="mt-4 space-y-4">
-//               <input
-//                 type="text"
-//                 placeholder="Name"
-//                 value={name}
-//                 onChange={(e) => setName(e.target.value)}
-//                 className="w-full p-2 border rounded"
-//               />
-//               <input
-//                 type="text"
-//                 placeholder="Phone Number"
-//                 value={phone}
-//                 onChange={(e) => setPhone(e.target.value)}
-//                 className="w-full p-2 border rounded"
-//               />
-//               <input
-//                 type="text"
-//                 placeholder="Address"
-//                 value={address}
-//                 onChange={(e) => setAddress(e.target.value)}
-//                 className="w-full p-2 border rounded"
-//               />
+//               <div className="relative">
+//                 <FaUser className="absolute top-3 left-3 text-gray-400" />
+//                 <input
+//                   type="text"
+//                   placeholder="Name"
+//                   value={name}
+//                   onChange={(e) => setName(e.target.value)}
+//                   className="w-full p-2 pl-10 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+//                 />
+//               </div>
+//               <div className="relative">
+//                 <FaPhone className="absolute top-3 left-3 text-gray-400" />
+//                 <input
+//                   type="text"
+//                   placeholder="Phone Number"
+//                   value={phone}
+//                   onChange={(e) => setPhone(e.target.value)}
+//                   className="w-full p-2 pl-10 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+//                 />
+//               </div>
+//               <div className="relative">
+//                 <FaHome className="absolute top-3 left-3 text-gray-400" />
+//                 <input
+//                   type="text"
+//                   placeholder="Address"
+//                   value={address}
+//                   onChange={(e) => setAddress(e.target.value)}
+//                   className="w-full p-2 pl-10 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+//                 />
+//               </div>
 //             </div>
+
+//             {/* Error Message */}
+//             {error && <div className="text-red-500 mt-2">{error}</div>}
 
 //             <button
 //               onClick={handleWhatsAppOrder}
@@ -112,11 +128,9 @@
 
 
 
-
-
-
 import React, { useState } from 'react';
 import { ProductType } from '../types';
+import { FaUser, FaPhone, FaHome } from 'react-icons/fa';
 
 interface CartProps {
   cart: ProductType[];
@@ -191,27 +205,36 @@ const Cart: React.FC<CartProps> = ({ cart, increaseQuantity, decreaseQuantity, r
 
             {/* User Details Input */}
             <div className="mt-4 space-y-4">
-              <input
-                type="text"
-                placeholder="Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="w-full p-2 border rounded"
-              />
-              <input
-                type="text"
-                placeholder="Phone Number"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                className="w-full p-2 border rounded"
-              />
-              <input
-                type="text"
-                placeholder="Address"
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-                className="w-full p-2 border rounded"
-              />
+              <div className="relative">
+                <FaUser className="absolute top-3 left-3 text-gray-400" />
+                <input
+                  type="text"
+                  placeholder="Name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="w-full p-2 pl-10 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div className="relative">
+                <FaPhone className="absolute top-3 left-3 text-gray-400" />
+                <input
+                  type="text"
+                  placeholder="Phone Number"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  className="w-full p-2 pl-10 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div className="relative">
+                <FaHome className="absolute top-3 left-3 text-gray-400" />
+                <input
+                  type="text"
+                  placeholder="Address"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  className="w-full p-2 pl-10 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
             </div>
 
             {/* Error Message */}
@@ -231,4 +254,3 @@ const Cart: React.FC<CartProps> = ({ cart, increaseQuantity, decreaseQuantity, r
 }
 
 export default Cart;
-
