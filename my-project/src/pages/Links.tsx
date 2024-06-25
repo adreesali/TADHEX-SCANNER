@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { FaMoneyBillWave, FaUniversity, FaFacebook, FaInstagram, FaTiktok, FaCopy } from 'react-icons/fa';
 
 const accounts = [
-  { type: 'EasyPaisa', number: '03211234567', icon: <FaMoneyBillWave className="text-green-500 text-2xl" /> },
-  { type: 'Bank Account', number: '1234567890', icon: <FaUniversity className="text-blue-500 text-2xl" /> },
+  { type: 'EasyPaisa', number: '03305697300', icon: <FaMoneyBillWave className="text-green-500 text-2xl" /> },
+  { type: 'Bank Account', number: '23010108747944', icon: <FaUniversity className="text-blue-500 text-2xl" /> },
   { type: 'Facebook', url: 'https://facebook.com/yourprofile', icon: <FaFacebook className="text-blue-700 text-2xl" /> },
   { type: 'Instagram', url: 'https://instagram.com/yourprofile', icon: <FaInstagram className="text-pink-500 text-2xl" /> },
   { type: 'TikTok', url: 'https://tiktok.com/@yourprofile', icon: <FaTiktok className="text-red-500 text-2xl" /> },
