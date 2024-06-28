@@ -23,7 +23,7 @@ const products: ProductType[] = [
     quantity: 0
   },
   {
-    id: 4, title: 'Karahi', price: 400, imageUrl: 'https://www.shutterstock.com/image-photo/pakistani-chicken-karahi-naan-traditional-260nw-1790057045.jpg',
+    id: 4, title: 'Karahi', price: 400000000, imageUrl: 'https://www.shutterstock.com/image-photo/pakistani-chicken-karahi-naan-traditional-260nw-1790057045.jpg',
     quantity: 0
   },
   {
