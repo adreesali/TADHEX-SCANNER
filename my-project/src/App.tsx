@@ -46,7 +46,7 @@ const App: React.FC = () => {
   return (
     <Router>
       <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col items-center">
-        <Navbar />
+        <Navbar cartItemCount={0} />
         <div className="container mx-auto p-4 flex flex-col items-center">
           <Routes>
             <Route path="/" element={<Links />} />
@@ -72,6 +72,5 @@ const App: React.FC = () => {
 }
 
 export default App;
-
 
 
