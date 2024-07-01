@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { FaMoneyBillWave, FaUniversity, FaFacebook, FaInstagram, FaTiktok, FaCopy } from 'react-icons/fa';
 
-const circleImageUrl = 'https://scontent.fisb5-1.fna.fbcdn.net/v/t39.30808-6/449128968_122181765698024161_2400663540130122988_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEKi5wADKg_YZLJVISFXcFISIWu4QebO-1Iha7hB5s77Shl9AuT3NJ9Ucnw0-5tP0dU9paleiBczCoHL4jOPXf4&_nc_ohc=nDWLFHElMvYQ7kNvgFvMmCY&_nc_zt=23&_nc_ht=scontent.fisb5-1.fna&oh=00_AYDEUd3-F1FuumdwfYR8rfO836rLnhkJVsBfDI64jxwyvQ&oe=66804A6F';
+const circleImageUrl = 'https://scontent.flhe4-2.fna.fbcdn.net/v/t39.30808-6/448991353_1101738484925907_7942184885917395523_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeE8rtXm4OVHY9fY9U7tSb1MqxSMAtn1X7yrFIwC2fVfvFrLVB0Nm2Y0CZ8DlPav3Z_SCfz1F1dRCNXCjA5UL0dd&_nc_ohc=IeaWN2CxGaYQ7kNvgGQQ1vT&_nc_zt=23&_nc_ht=scontent.flhe4-2.fna&oh=00_AYAbJ4OGjE_7W_HvrBk-chEmsQaq4DLP5EhJQELuTTM9TA&oe=6688E7F7';
 
 const accounts = [
   { type: 'EasyPaisa', number: '03305697300', icon: <FaMoneyBillWave className="text-green-500 text-2xl" /> },
