@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaShoppingCart } from 'react-icons/fa'; // Importing the cart icon from react-icons
+import { FaShoppingCart } from 'react-icons/fa';
 
 interface NavbarProps {
   cartItemCount: number;

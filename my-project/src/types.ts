@@ -6,7 +6,6 @@ export interface ProductType {
   quantity: number;
 }
 
-
 export interface CartItemType extends ProductType {
   quantity: number;
 }
