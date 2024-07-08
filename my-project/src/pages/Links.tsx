@@ -211,7 +211,7 @@ const Links: React.FC = () => {
   };
 
   return (
-    <div className="max-w-5xl mx-auto mt-8">
+    <div className="max-w-5xl mx-auto mt-10">
       <header className="flex flex-col items-center text-center mb-8">
         <img 
           src="path_to_your_image.jpg" // Replace with your actual image path or URL
