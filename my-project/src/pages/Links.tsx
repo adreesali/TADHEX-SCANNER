@@ -80,7 +80,7 @@ import { FaMoneyBillWave, FaUniversity, FaFacebook, FaInstagram, FaTiktok, FaCop
 
 
 
-// interface Products {
+// interface Products  s{
 //   id: number;
 //   title: string;
 //   price: number;
