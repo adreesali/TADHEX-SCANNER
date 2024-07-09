@@ -7,16 +7,17 @@ const app = express();
 const port = 3001;
 
 const pool = new Pool({
-  user: 'mydatabase',
+  user: 'mydatabase', // Ensure this is the correct username
   host: 'localhost',
   database: 'mydatabase',
-  password: '1234',
+  password: '1234', // Ensure this is the correct password
   port: 5432,
 });
 
 app.use(cors());
 app.use(bodyParser.json());
 
+// Function to create the items table if it doesn't exist
 async function createItemsTable() {
   try {
     const client = await pool.connect();
@@ -35,20 +36,18 @@ async function createItemsTable() {
   }
 }
 
-// Call the function to create the table
 createItemsTable();
 
-// Get all items
 app.get('/items', async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM items');
     res.json(result.rows);
   } catch (error) {
+    console.error('Error fetching items:', error);
     res.status(500).send(error.message);
   }
 });
 
-// Add an item
 app.post('/items', async (req, res) => {
   const { title, price, imgUrl } = req.body;
   try {
@@ -58,6 +57,7 @@ app.post('/items', async (req, res) => {
     );
     res.json(result.rows[0]);
   } catch (error) {
+    console.error('Error adding item:', error);
     res.status(500).send(error.message);
   }
 });
