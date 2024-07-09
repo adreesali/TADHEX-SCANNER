@@ -25,28 +25,21 @@ const Cart: React.FC<CartProps> = ({ cart, increaseQuantity, decreaseQuantity, r
     }
   
     setError("");
-  
-    // Prepare order items with emojis
+
     const orderItems = cart.map(item => {
       return `**${item.title}**\nPrice: ${item.price.toLocaleString()} PKR × ${item.quantity} = ${item.price * item.quantity} PKR`;
     }).join('\n');
   
-    // Total bill
     const totalBill = `\n\n**Total Bill:** PKR ${totalPrice.toLocaleString()}`;
   
-    // Customer details
     const customerDetails = `\n\n**Customer Details:**\nName: ${name}\nPhone: ${phone}\nAddress: ${address}`;
   
-    // Order type
     const orderDetails = `\n\n**Order Type:** ${orderType}`;
-  
-    // WhatsApp message
+
     const whatsappMessage = encodeURIComponent(`**Order Details:**\n${orderItems}${totalBill}${orderDetails}${customerDetails}`);
   
-    // WhatsApp link
     const whatsappLink = `https://wa.me/923305687300?text=${whatsappMessage}`;
   
-    // Open WhatsApp link in new tab
     window.open(whatsappLink, '_blank');
   };
   
@@ -96,10 +89,8 @@ const Cart: React.FC<CartProps> = ({ cart, increaseQuantity, decreaseQuantity, r
               ))}
             </div>
 
-            {/* Total Bill */}
             <div className="text-xl sm:text-2xl font-bold mt-4">Total: <span className="font-bold">PKR {totalPrice.toLocaleString()}</span></div>
 
-            {/* Order Type Buttons */}
             <div className="flex flex-col sm:flex-row justify-between mt-4 space-y-2 sm:space-y-0 sm:space-x-4">
               <button
                 onClick={() => setOrderType('In Dine')}
