@@ -7,35 +7,36 @@ const app = express();
 const port = 3001;
 
 const pool = new Pool({
-  user: 'your_db_user',
+  user: 'mydatabase',
   host: 'localhost',
   database: 'mydatabase',
   password: '1234',
   port: 5432,
 });
 
-
 app.use(cors());
 app.use(bodyParser.json());
 
-
-async function createWorkersTable() {
-    try {
-        const client = await pool.connect();
-        await client.query(`
-            CREATE TABLE IF NOT EXISTS scanner (
-                id SERIAL PRIMARY KEY,
-                title VARCHAR(100) NOT NULL,
-                price VARCHAR(12, 8) UNIQUE NOT NULL,
-                imgUrl TEXT NOT NULL
-            )
-        `);
-        console.log('scanner table created successfully');
-        client.release();
-    } catch (error) {
-        console.error('Error creating scanner table:', error);
-    }
+async function createItemsTable() {
+  try {
+    const client = await pool.connect();
+    await client.query(`
+      CREATE TABLE IF NOT EXISTS items (
+        id SERIAL PRIMARY KEY,
+        title VARCHAR(100) NOT NULL,
+        price NUMERIC(12, 2) NOT NULL,
+        imgUrl TEXT NOT NULL
+      )
+    `);
+    console.log('Items table created successfully');
+    client.release();
+  } catch (error) {
+    console.error('Error creating items table:', error);
+  }
 }
+
+// Call the function to create the table
+createItemsTable();
 
 // Get all items
 app.get('/items', async (req, res) => {
@@ -61,11 +62,6 @@ app.post('/items', async (req, res) => {
   }
 });
 
-
-
-
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
-
-
