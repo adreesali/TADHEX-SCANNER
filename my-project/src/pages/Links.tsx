@@ -1,10 +1,10 @@
 
-<<<<<<< HEAD
+
+
 // import React, { useState } from 'react';
 // import { FaMoneyBillWave, FaUniversity, FaFacebook, FaInstagram, FaTiktok, FaCopy } from 'react-icons/fa';
-<<<<<<< HEAD
 
-// const circleImageUrl = 'https://scontent.flhe4-2.fna.fbcdn.net/v/t39.30808-6/448991353_1101738484925907_7942184885917395523_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeE8rtXm4OVHY9fY9U7tSb1MqxSMAtn1X7yrFIwC2fVfvFrLVB0Nm2Y0CZ8DlPav3Z_SCfz1F1dRCNXCjA5UL0dd&_nc_ohc=IeaWN2CxGaYQ7kNvgGQQ1vT&_nc_zt=23&_nc_ht=scontent.flhe4-2.fna&oh=00_AYAbJ4OGjE_7W_HvrBk-chEmsQaq4DLP5EhJQELuTTM9TA&oe=6688E7F7';
+// const circleImageUrl = 'https://scontent.fisb5-1.fna.fbcdn.net/v/t39.30808-6/449128968_122181765698024161_2400663540130122988_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEKi5wADKg_YZLJVISFXcFISIWu4QebO-1Iha7hB5s77Shl9AuT3NJ9Ucnw0-5tP0dU9paleiBczCoHL4jOPXf4&_nc_ohc=jhPsesSXkYMQ7kNvgEJDGvi&_nc_zt=23&_nc_ht=scontent.fisb5-1.fna&oh=00_AYC3XiqA217qzJH1kUTviEfjcAXflpg_EcmCoTtfTAY8qA&oe=66A41B2F';
 
 // const accounts = [
 //   { type: 'EasyPaisa', number: '03305697300', icon: <FaMoneyBillWave className="text-green-500 text-2xl" /> },
@@ -22,7 +22,7 @@
 //     setCopiedIndex(index);
 //     setTimeout(() => setCopiedIndex(null), 2000);
 //   };
-
+// // hi adrees
 //   return (
 //     <div className="max-w-5xl mx-auto mt-8">
 //       <header className="flex flex-col items-center text-center mb-8">
@@ -72,16 +72,14 @@
 
 
 
-import React, { useState } from 'react';
-import { FaMoneyBillWave, FaUniversity, FaFacebook, FaInstagram, FaTiktok, FaCopy } from 'react-icons/fa';
-=======
->>>>>>> 5fbe7bb (adreesa)
-=======
-import React, { useState } from 'react';
-import { FaMoneyBillWave, FaUniversity, FaFacebook, FaInstagram, FaTiktok, FaCopy } from 'react-icons/fa';
->>>>>>> 716410d (d)
 
-const circleImageUrl = 'https://scontent.flhe4-2.fna.fbcdn.net/v/t39.30808-6/448991353_1101738484925907_7942184885917395523_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeE8rtXm4OVHY9fY9U7tSb1MqxSMAtn1X7yrFIwC2fVfvFrLVB0Nm2Y0CZ8DlPav3Z_SCfz1F1dRCNXCjA5UL0dd&_nc_ohc=IeaWN2CxGaYQ7kNvgGQQ1vT&_nc_zt=23&_nc_ht=scontent.flhe4-2.fna&oh=00_AYAbJ4OGjE_7W_HvrBk-chEmsQaq4DLP5EhJQELuTTM9TA&oe=6688E7F7';
+
+
+
+import React, { useState } from 'react';
+import { FaMoneyBillWave, FaUniversity, FaFacebook, FaInstagram, FaTiktok, FaCopy } from 'react-icons/fa';
+
+const circleImageUrl = 'https://scontent.fisb5-1.fna.fbcdn.net/v/t39.30808-6/449128968_122181765698024161_2400663540130122988_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEKi5wADKg_YZLJVISFXcFISIWu4QebO-1Iha7hB5s77Shl9AuT3NJ9Ucnw0-5tP0dU9paleiBczCoHL4jOPXf4&_nc_ohc=jhPsesSXkYMQ7kNvgEJDGvi&_nc_zt=23&_nc_ht=scontent.fisb5-1.fna&oh=00_AYC3XiqA217qzJH1kUTviEfjcAXflpg_EcmCoTtfTAY8qA&oe=66A41B2F';
 
 const accounts = [
   { type: 'EasyPaisa', number: '03305697300', icon: <FaMoneyBillWave className="text-green-500 text-2xl" /> },
@@ -99,7 +97,7 @@ const Links: React.FC = () => {
     setCopiedIndex(index);
     setTimeout(() => setCopiedIndex(null), 2000);
   };
-// hi adrees
+
   return (
     <div className="max-w-5xl mx-auto mt-8">
       <header className="flex flex-col items-center text-center mb-8">
@@ -118,15 +116,18 @@ const Links: React.FC = () => {
               <span className="ml-2 text-lg font-medium">{account.type}</span>
             </div>
             {account.number && (
-              <div className="flex items-center justify-center w-full my-2">
-                <span className="text-gray-600 dark:text-gray-400 mr-2 text-sm">{account.number}</span>
+              <div className="flex flex-col items-center justify-center w-full my-2">
+                <span className="text-gray-600 dark:text-gray-400 text-sm">{account.number}</span>
                 <button
-                  className="p-1 rounded-full bg-gray-200 hover:bg-gray-300"
+                  className="p-1 rounded-full bg-gray-200 hover:bg-gray-300 mt-1"
                   onClick={() => copyToClipboard(account.number, index)}
                 >
                   <FaCopy className="text-gray-500 text-sm" />
                 </button>
-                {copiedIndex === index && <span className="ml-2 text-green-500 text-sm">Copied!</span>}
+                {copiedIndex === index && <span className="text-green-500 text-sm">Copied!</span>}
+                {(account.type === 'EasyPaisa' || account.type === 'Bank Account') && (
+                  <span className="text-red-500 text-sm mt-1">Account Title: Adrees Ali</span>
+                )}
               </div>
             )}
             {account.url && (

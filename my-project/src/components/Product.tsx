@@ -18,7 +18,7 @@ const Product: React.FC<ProductProps> = ({ product, cartItem, addToCart, increas
       <img src={product.imageUrl} alt={product.title} className="w-full h-48 object-cover" />
       <div className="p-4">
         <h2 className="text-xl font-bold mb-2 text-center">{product.title}</h2>
-        <p className="text-gray-600 dark:text-gray-400 mb-4 text-center">PKR {product.price.toLocaleString()}</p>
+        <p className="text-gray-600 dark:text-gray-400 mb-4 text-center">$ {product.price.toLocaleString()}</p>
         {!inCart ? (
           <button
             onClick={() => addToCart(product)}

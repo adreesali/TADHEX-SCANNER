@@ -13,7 +13,7 @@ const Cart: React.FC<CartProps> = ({ cart, increaseQuantity, decreaseQuantity, r
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
-  const [orderType, setOrderType] = useState<'In Dine' | 'Take Away' | 'Delivery' | ''>('');
+  const [orderType, setOrderType] = useState<'Dine-In' | 'Take Away' | 'Delivery' | ''>('');
   const [error, setError] = useState('');
 
   const totalPrice = cart.reduce((total, product) => total + product.price * product.quantity, 0);
@@ -30,7 +30,7 @@ const Cart: React.FC<CartProps> = ({ cart, increaseQuantity, decreaseQuantity, r
       return `**${item.title}**\nPrice: ${item.price.toLocaleString()} PKR × ${item.quantity} = ${item.price * item.quantity} PKR`;
     }).join('\n');
   
-    const totalBill = `\n\n**Total Bill:** PKR ${totalPrice.toLocaleString()}`;
+    const totalBill = `\n\n**Total Bill:** $ ${totalPrice.toLocaleString()}`;
   
     const customerDetails = `\n\n**Customer Details:**\nName: ${name}\nPhone: ${phone}\nAddress: ${address}`;
   
@@ -48,7 +48,7 @@ const Cart: React.FC<CartProps> = ({ cart, increaseQuantity, decreaseQuantity, r
       <h1 className="text-3xl sm:text-4xl font-bold mb-6">Cart</h1>
       <div className="w-full max-w-3xl">
         {cart.length === 0 ? (
-          <p className="text-lg">Your cart is empty</p>
+          <p className="text-lg">Your Cart is Empty</p>
         ) : (
           <>
             <div className="grid grid-cols-1 gap-4">
@@ -57,7 +57,7 @@ const Cart: React.FC<CartProps> = ({ cart, increaseQuantity, decreaseQuantity, r
                   <img src={product.imageUrl} alt={product.title} className="w-20 h-20 object-cover rounded-lg" />
                   <div className="flex-1">
                     <div className="font-semibold text-lg">{product.title}</div>
-                    <div className="text-gray-600 text-base">Price: <span className="font-bold">PKR {product.price.toLocaleString()}</span></div>
+                    <div className="text-gray-600 text-base">Price: <span className="font-bold">$ {product.price.toLocaleString()}</span></div>
                     <div className="flex items-center mt-2 space-x-4">
                       <button
                         onClick={() => decreaseQuantity(product.id)}
@@ -89,14 +89,14 @@ const Cart: React.FC<CartProps> = ({ cart, increaseQuantity, decreaseQuantity, r
               ))}
             </div>
 
-            <div className="text-xl sm:text-2xl font-bold mt-4">Total: <span className="font-bold">PKR {totalPrice.toLocaleString()}</span></div>
+            <div className="text-xl sm:text-2xl font-bold mt-4">Total: <span className="font-bold">$ {totalPrice.toLocaleString()}</span></div>
 
             <div className="flex flex-col sm:flex-row justify-between mt-4 space-y-2 sm:space-y-0 sm:space-x-4">
               <button
-                onClick={() => setOrderType('In Dine')}
-                className={`flex-1 py-2 rounded-lg font-semibold transition-all duration-300 ${orderType === 'In Dine' ? 'bg-yellow-500 text-white shadow-md hover:bg-yellow-600' : 'bg-yellow-200 text-black hover:bg-yellow-300'}`}
+                onClick={() => setOrderType('Dine-In')}
+                className={`flex-1 py-2 rounded-lg font-semibold transition-all duration-300 ${orderType === 'Dine-In' ? 'bg-yellow-500 text-white shadow-md hover:bg-yellow-600' : 'bg-yellow-200 text-black hover:bg-yellow-300'}`}
               >
-                In Dine
+                Dine-In
               </button>
               <button
                 onClick={() => setOrderType('Take Away')}
@@ -143,13 +143,9 @@ const Cart: React.FC<CartProps> = ({ cart, increaseQuantity, decreaseQuantity, r
                   onChange={(e) => setAddress(e.target.value)}
                   className="w-full p-2 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
-              </div>
+              </div>  
             </div>
-
-            {/* Error Message */}
             {error && <div className="text-red-500 mt-2">{error}</div>}
-
-            {/* WhatsApp Order Button */}
             <button
               onClick={handleWhatsAppOrder}
               className="bg-green-500 text-white mt-4 px-4 py-2 rounded-lg hover:bg-green-600 w-full shadow-md transition-all"
